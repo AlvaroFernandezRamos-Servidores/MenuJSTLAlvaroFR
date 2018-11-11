@@ -1,12 +1,6 @@
-<%-- 
-    Document   : prueba
-    Created on : 29 oct. 2018, 19:12:48
-    Author     : paco
---%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%--obligatorio ponerlo--%>
-<%--<jsp:directive.include contentType="text/html" pageEncoding ="UTF-8"/>--%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,12 +10,13 @@
     <body>
 	<form action="Formatos" method="post">
 	    <c:set var="locales" value="${sessionScope.locales}"/>
-	    <select>
+	    <select name="seleccionPais">
 	    <c:forEach var="locale" items="${locales}">
 		<option value="${locale.value}-${locale.key}">${locale.key}</option>
 	    </c:forEach>
 	    <input type="submit" value="Continuar">
 	</select>
 	</form>
+	<a href="<c:url value = "/index.html"/>">Volver</a>
     </body>
 </html>

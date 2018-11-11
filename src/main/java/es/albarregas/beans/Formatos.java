@@ -68,15 +68,29 @@ public class Formatos extends HttpServlet {
 	
 	HttpSession sesion = request.getSession();
 	
-	Map localeSessionData = (Map) sesion.getAttribute("locale");
-	
-//	for(String item:localeSessionData){
-//	    
-//	}
-//	
-//	idioma = new Locale();
-    }
+//	Map localeSessionData = (Map) sesion.getAttribute("locale");
 
+//	StringBuilder localeBuilder = new StringBuilder(request.getParameter("seleccionPais"));
+//	String localeData = localeBuilder.substring(0,localeBuilder.indexOf("-"));
+
+	String localeData = (String) request.getParameter("seleccionPais").split("-")[0];
+	String pais = (String) request.getParameter("seleccionPais").split("-")[1];
+	String localeDataLang = localeData.split("_")[0];
+	String localeDataLocation = localeData.split("_")[1];
+	
+	Double numero;
+	numero = 1000.00/3;
+	
+	idioma = new Locale(localeDataLang,localeDataLocation);
+	System.out.println(idioma);
+	System.out.println(pais);
+	sesion.setAttribute("localeString", idioma);
+	sesion.setAttribute("fecha", fecha);
+	sesion.setAttribute("pais", pais);
+	sesion.setAttribute("numero", numero);
+	
+	request.getRequestDispatcher("/JSP/views/visualizar.jsp").forward(request,response);
+    }
     /**
      * Returns a short description of the servlet.
      *

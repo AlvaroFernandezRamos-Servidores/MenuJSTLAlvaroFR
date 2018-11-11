@@ -78,8 +78,8 @@ public class Locales extends HttpServlet {
 //	    }
 	    HttpSession sesion = request.getSession();
 	    sesion.setAttribute("locales" , localesMap);
-	    System.out.println("asd");
-	    request.getRequestDispatcher("/JSP/core/showLocales.jsp").forward(request,response);
+	    //Hay que pasar el idioma como un objeto Locale
+	    request.getRequestDispatcher("/JSP/views/showLocales.jsp").forward(request,response);
     }
 
     /**
