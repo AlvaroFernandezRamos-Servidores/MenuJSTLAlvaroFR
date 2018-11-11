@@ -82,8 +82,7 @@ public class Formatos extends HttpServlet {
 	numero = 1000.00/3;
 	
 	idioma = new Locale(localeDataLang,localeDataLocation);
-	System.out.println(idioma);
-	System.out.println(pais);
+	
 	sesion.setAttribute("localeString", idioma);
 	sesion.setAttribute("fecha", fecha);
 	sesion.setAttribute("pais", pais);
